@@ -1,0 +1,57 @@
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Frame07 extends JFrame implements ActionListener
+{
+    JButton jbt1,jbt2,jbt3;
+    JPanel panel;
+    public Frame07()
+    {
+        setTitle("磁盘调度算法");
+        setLayout(null);
+        setVisible(true);
+        setBounds(600,200,300,400);
+        setResizable(false);// 设置窗体不能改变尺寸
+
+        panel=new JPanel();
+        panel.setLayout(null);
+        panel.setBounds(10,10,265,340);
+        panel.setBorder(BorderFactory.createTitledBorder("选择调度算法"));
+        jbt1=new JButton("SSTF调度算法");
+        jbt2=new JButton("SCAN调度算法");
+        jbt3=new JButton("CSCAN调度算法");
+        jbt1.setBounds(55,80,160,35);
+        jbt2.setBounds(55,140,160,35);
+        jbt3.setBounds(55,200,160,35);
+        jbt1.addActionListener(this);
+        jbt2.addActionListener(this);
+        jbt3.addActionListener(this);
+        panel.add(jbt1);
+        panel.add(jbt2);
+        panel.add(jbt3);
+        add(panel);
+        validate();
+    }
+
+    public void actionPerformed(ActionEvent e)
+    {
+        if(e.getSource()==jbt1)
+        {
+            new Frame07_a();
+        }
+        if(e.getSource()==jbt2)
+        {
+            new Frame07_b();
+        }
+        if(e.getSource()==jbt3)
+        {
+            new Frame07_c();
+        }
+    }
+}
